@@ -20,7 +20,7 @@ resource "aws_vpc" "sigmatek_vpc" {
 
 resource "aws_subnet" "Public_sigmatek_subnet_1" {
   vpc_id            = aws_vpc.sigmatek_vpc.id
-  cidr_block        = var.Public_cidr_block
+  cidr_block        = var.Public_cidr_block1
   availability_zone = "us-east-1a"
   tags = {
     Name = "Public_sigmatek_subnet-1"
@@ -29,7 +29,7 @@ resource "aws_subnet" "Public_sigmatek_subnet_1" {
 
 resource "aws_subnet" "Public_sigmatek_subnet_2" {
   vpc_id            = aws_vpc.sigmatek_vpc.id
-  cidr_block        = var.Public_cidr_block
+  cidr_block        = var.Public_cidr_block2
   availability_zone = "us-east-1b"
   tags = {
     Name = "Public_sigmatek_subnet-2"
@@ -43,7 +43,7 @@ resource "aws_subnet" "Public_sigmatek_subnet_2" {
 
 resource "aws_subnet" "Private_sigmatek_subnet_1" {
   vpc_id            = aws_vpc.sigmatek_vpc.id
-  cidr_block        = var.Private_cidr_block
+  cidr_block        = var.Private_cidr_block1
   availability_zone = "us-east-1a"
   tags = {
     Name = "Private_sigmatek_subnet_1"
@@ -52,7 +52,7 @@ resource "aws_subnet" "Private_sigmatek_subnet_1" {
 
 resource "aws_subnet" "Private_sigmatek_subnet_2" {
   vpc_id            = aws_vpc.sigmatek_vpc.id
-  cidr_block        = var.Private_cidr_block
+  cidr_block        = var.Private_cidr_block2
   availability_zone = "us-east-1b"
   tags = {
     Name = "Private_sigmatek_subnet_2"
@@ -67,7 +67,7 @@ resource "aws_subnet" "Private_sigmatek_subnet_2" {
 
 resource "aws_subnet" "Private_sigmatek_subnet_3" {
   vpc_id            = aws_vpc.sigmatek_vpc.id
-  cidr_block        = var.Private_cidr_block
+  cidr_block        = var.Private_cidr_block3
   availability_zone = "us-east-1a"
   tags = {
     Name = "Private_sigmatek_subnet_3"
@@ -76,7 +76,7 @@ resource "aws_subnet" "Private_sigmatek_subnet_3" {
 
 resource "aws_subnet" "Private_sigmatek_subnet_4" {
   vpc_id            = aws_vpc.sigmatek_vpc.id
-  cidr_block        = var.Private_cidr_block
+  cidr_block        = var.Private_cidr_block4
   availability_zone = "us-east-1b"
   tags = {
     Name = "Private_sigmatek_subnet_4"
@@ -121,7 +121,7 @@ resource "aws_nat_gateway" "sigmatek_nat1" {
 #Elastic Ip 1
 ##################################
 resource "aws_eip" "sigmatek_ep1" {
-  vpc = aws_vpc.sigmatek_vpc.id
+  vpc      = true
   tags = {
     Name = "var.eip"
   }
@@ -149,7 +149,7 @@ resource "aws_nat_gateway" "sigmatek_nat2" {
 #Elastic Ip 2
 ##################################
 resource "aws_eip" "sigmatek_ep2" {
-  vpc = aws_vpc.sigmatek_vpc.id
+  vpc      = true
   tags = {
     Name = "var.eip"
   }
